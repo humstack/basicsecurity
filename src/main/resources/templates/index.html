@@ -1,0 +1,37 @@
+<div th:insert="parts/header.html"></div>
+<h3>All Users</h3>
+<div class="row">
+    <div class="col-md-2">
+        <div class="pull-left">
+            <a th:href="@{/user/add}" class="form-control btn btn-success">Add User</a>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="pull-left">
+            <a th:href="@{/role}" class="form-control btn btn-info">View Roles</a>
+        </div>
+    </div>
+</div>
+</div>
+<table class="table table-hover">
+    <thead>
+    <td>ID</td>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email</td>
+    <td>Username</td>
+    </thead>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td><a th:href="@{/user/{id}(id=${user.id})}" th:text="${user.username}"></a></td>
+        <td><a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-primary">Edit</a></td>
+        <td><a th:href="@{/user/delete/{id}(id=${user.id})}" th:if="${user.id} != 1"
+               class="btn btn-danger">Delete</a></td>
+    </tr>
+</table>
+
+<div th:insert="parts/footer.html"></div>
