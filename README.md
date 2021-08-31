@@ -10,4 +10,6 @@ The tech stack includes:
 4. Spring Security
 5. Spring Data JPA.
 
-A live-running version will be shared soon.
+Please follow this url to view the application. 
+
+https://basicsecurity.herokuapp.com/.
