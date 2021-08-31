@@ -51,9 +51,9 @@ public class AppUserService {
         if (user.getId() != SYSTEM_ADMIN){
             user.setEnabled(appUser.isEnabled());
             user.setRole(appUser.getRole());
+            user.setPassword(passwordEncoder.encode(appUser.getPassword())); //Encode user's password
         }
 
-        user.setPassword(passwordEncoder.encode(appUser.getPassword())); //Encode user's password
         userRepository.save(user);
     }
 
